@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 public class directory {
 	//method to find the files in home directory
-	public void find(String directory_path, String regexPattern) {
+	public void find(String directory_path, String regex_pattern) {
 		//here creating the file type object.
 		File directory =new File(directory_path);
 		//taking all files in the directory into a file list
@@ -18,9 +18,9 @@ public class directory {
 		for(File item:list) {
 			if(item.isDirectory()) {
 				//if it a directory the method is called again in recursive way
-				find(item.getAbsolutePath(), regexPattern);
+				find(item.getAbsolutePath(), regex_pattern);
 			}
-			else if(Pattern.matches(regexPattern, item.getName())) {
+			else if(Pattern.matches(regex_pattern, item.getName())) {
 					System.out.println("Pattern Found with :"+item.getAbsolutePath());
 			}
 			else {
